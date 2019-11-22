@@ -1,3 +1,12 @@
-def solve(expr: str) -> int:
+"""
+docstring
+"""
 
-    return 42
+
+def solve(expr: str) -> int:
+    """
+
+    :param expr:
+    :return:
+    """
+    return eval(expr)

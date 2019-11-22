@@ -10,3 +10,5 @@ def solve(expr: str) -> int:
     :return:
     """
     return eval(expr)
+
+

@@ -1,7 +1,6 @@
 """
 solve math expression evaluation
 """
-from typing import List
 
 
 def apply_math_operation(frst_num: float, sec_num: float, operation: str):
@@ -43,7 +42,7 @@ def solve(math_expr: str) -> int:
     :return: int
     """
     i = 0
-    ops_stack: List[str] = []
+    ops_stack = []
     values_stack = []
 
     while i < len(math_expr):

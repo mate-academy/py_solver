@@ -14,4 +14,4 @@ To run all style checkers and tests use commands:
 
 `pylint solver`
 
-`mypy --ignore-missing-imports .`
+`mypy solver.py`

@@ -6,5 +6,4 @@ install:
 script:
   - pytest
   - flake8 solver
-  - pylint solver
   - mypy --ignore-missing-imports .

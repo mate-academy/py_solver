@@ -1,22 +1,10 @@
 """
 solve math expression evaluation
 """
+from typing import List
 
 
-def precedence(operation: str) -> int:
-    """
-    Return precedence of math operation.
-    :param operation: str
-    :return: int
-    """
-    if operation in ('+', '-'):
-        return 1
-    if operation in ('*', '/'):
-        return 2
-    return 0
-
-
-def apply_math_operation(frst_num: float, sec_num: float, operation: str) -> float:
+def apply_math_operation(frst_num: float, sec_num: float, operation: str):
     """
     Calculate the value between two numbers.
     :param frst_num: float
@@ -34,6 +22,19 @@ def apply_math_operation(frst_num: float, sec_num: float, operation: str) -> flo
         return frst_num // sec_num
 
 
+def precedence(operation: str) -> int:
+    """
+    Return precedence of math operation.
+    :param operation: str
+    :return: int
+    """
+    if operation in ('+', '-'):
+        return 1
+    if operation in ('*', '/'):
+        return 2
+    return 0
+
+
 def solve(math_expr: str) -> int:
     """
     Evaluate arithmetic expressions in a string representation.
@@ -42,7 +43,7 @@ def solve(math_expr: str) -> int:
     :return: int
     """
     i = 0
-    ops_stack = []
+    ops_stack: List[str] = []
     values_stack = []
 
     while i < len(math_expr):

@@ -9,6 +9,4 @@ def solve(expr: str) -> int:
     :param expr:
     :return:
     """
-    return eval(expr)
-
-
+    return int(eval(expr))

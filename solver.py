@@ -57,7 +57,6 @@ def solve(math_expr: str) -> int:
                 values_stack.append(result)
 
             ops_stack.append(math_expr[i])
-
         i += 1
 
     while len(ops_stack) != 0:

@@ -2,29 +2,29 @@
 import ast
 import operator
 
-binOps = {
-    ast.Add: operator.add,
-    ast.Sub: operator.sub,
-    ast.Mult: operator.mul,
-    ast.Div: operator.floordiv,
-    ast.Mod: operator.mod
-}
-
 
 def solve(expr: str) -> int:
     """solve_"""
+    binops = {
+        ast.Add: operator.add,
+        ast.Sub: operator.sub,
+        ast.Mult: operator.mul,
+        ast.Div: operator.floordiv,
+        ast.Mod: operator.mod
+    }
     node = ast.parse(expr, mode='eval')
 
     def _eval(node):
         if isinstance(node, ast.Expression):
-            return _eval(node.body)
+            result = _eval(node.body)
         elif isinstance(node, ast.Str):
-            return node.s
+            result = node.s
         elif isinstance(node, ast.Num):
-            return node.n
+            result = node.n
         elif isinstance(node, ast.BinOp):
-            return binOps[type(node.op)](_eval(node.left), _eval(node.right))
+            result = binops[type(node.op)](_eval(node.left), _eval(node.right))
         else:
             raise Exception('Unsupported type {}'.format(node))
+        return result
 
-    return _eval(node.body)
+    return _eval(node)

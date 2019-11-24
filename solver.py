@@ -15,14 +15,6 @@ def final_count(array):
     return lump_sum
 
 
-def integers_list_process(array, new_element):
-    """re-arranging the array after multiplication and/or subtraction"""
-    array.pop()
-    array.pop()
-    array.append(new_element)
-    return array
-
-
 def solve(expression):
     """main function: string expression is first analysed for multiplication
     and/or subtraction and subsequently - for adding up and subtraction"""
@@ -33,13 +25,13 @@ def solve(expression):
         integers.append(expression[number])
         integers_count += 1
         if expression[number] == "*":
-            mult = int(integers[integers_count - 1]) * int(expression[number + 1])
-            integers = integers_list_process(integers, mult)
+            integers[(integers_count - 1):(integers_count + 1)] = \
+                [int(integers[integers_count - 1]) * int(expression[number+1])]
             integers_count -= 1
             number += 1
         if expression[number] == "/":
-            mult = int(integers[integers_count - 1]) / int(expression[number + 1])
-            integers = integers_list_process(integers, mult)
+            integers[(integers_count - 1):(integers_count + 1)] = \
+                [int(integers[integers_count - 1]) / int(expression[number + 1])]
             integers_count -= 1
             number += 1
         number += 1

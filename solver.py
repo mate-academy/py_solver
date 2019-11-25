@@ -1,3 +1,8 @@
-def solve(expr: str) -> int:
+"""The function to evaluate arithmetic expressions in a string
+representation.
+"""
 
-    return 42
+
+def solve(expr: str) -> int:
+    """General function"""
+    return eval(expr)
